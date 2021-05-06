@@ -1,0 +1,174 @@
+<div style="background-color: 	#F5F5F5;min-height: 695px" >
+<div id="top"></div>
+  <div class="container">
+
+
+<!--LOADING CONTAINER-->
+  <div *ngIf="spin" style="margin-top: 40px;"  class="container loader-container1" >
+    <div  class="lspinner">
+      
+    </div>
+    <span class="load">Loading...</span>
+    <div class="loading-dots" >
+      <div class="bounce"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div> 
+    <div  class="container loader-container">
+    </div>
+    </div>
+<!--END OF LOADING CONTAINER-->
+
+
+<div class="row"style="margin-top: -20px;">
+  <div class="col-md-12" style="margin-top: 20px;">
+
+    <div class="card my-5" style="border-radius: 20px;">
+      <div class="card-body" style="min-height: 560px;"  >
+        <mat-drawer-container  style="background-color: white;">
+<!-- SEARCH DRAWER -->
+        <mat-drawer #drawer mode="push" style="background: #34495e;width: 350px;height: 400px;top: 0%;border-radius: 10px;" >
+          <form (ngSubmit)="onSubmit()"  #userForm="ngForm">  
+          <div class="form-group" style="width: 250px;margin-top: 30px;">
+            <label for="bureau"></label>
+             <select  type="text" [(ngModel)]="data.BUR_COD" 
+               class="form-control" 
+               id="bureau" 
+               name="bureau"   
+               required       
+               #bur_cod="ngModel">
+               <ng-container *ngFor="let burcod of brcod">
+               <option value="{{burcod.bur_cod}}">{{ burcod.bur_cod}} : {{ burcod.bur_intit}}</option>
+               </ng-container>
+               </select>     
+          </div>    
+          <div class="form-group">
+            <label for="cin"></label>
+            <input type="text" [(ngModel)]="data.CIN" 
+              class="form-control" 
+              id="cin" 
+              name="cin" 
+              placeholder="Employeur/Employé"
+              required
+              #cin="ngModel"> 
+          </div>
+    
+          <div class="form-group">
+            <label for="typeavantage"></label>
+             <select type="text" [(ngModel)]="data.TYPE_CONTRAT" 
+              class="form-control" 
+              id="typeavantage" 
+              name="typeavantage"      
+              required    
+              #typeavantage="ngModel">
+              <ng-container *ngFor="let types of aneti_avg ">
+                <option value="{{types.code}}">{{ types.code}}</option>
+             </ng-container>
+             <!--  <ng-container *ngFor="let burcod of brcod">
+               <option value="{{burcod.bur_cod}}">{{ burcod.bur_cod}}</option>
+              </ng-container>-->
+              </select>
+          </div>
+            <button style="margin-top:70px;"  type="submit"    class="btn btn-info">Recherche <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>    
+        </mat-drawer>
+ <!-- END OF SEARCH DRAWER-->
+
+      
+     <!-- <div *ngIf="search_icon">  
+        <a (click)="drawer.open()"><i class="fa fa-search" aria-hidden="true"></i> </a>
+      </div>-->
+
+  <!-- LINK TO TRIGGER THE DRAWER-->
+      <a  (click)="drawer.open()"><i style="cursor: pointer;" class="fa fa-search" aria-hidden="true"></i> </a>
+  <!---->
+    <div class="head"> bénéficiaires</div>
+<br>
+<br>
+    <table *ngIf="!spin" class="table  table-striped">
+      <thead class="thead "  >
+        <tr>   
+          <th style="margin: auto;align-self:center;align-content: center;" scope="col">#CIN</th>
+          <th  scope="col">Nom Prenom</th>             
+          <th scope="col">Bureau</th>
+          <th  scope="col">Date Import</th>
+          <th style="margin: auto;" scope="col">Numero d'affiliation</th>
+          <th  scope="col">Type Contrat</th>
+          <th  scope="col">Employeur Existant</th>
+          <th  scope="col">Assuree Existant</th>     
+        <!--  <th scope="col">Action </th>      -->
+        </tr>
+      </thead>
+      <tbody>     
+          <tr  *ngFor="let karama  of karama_list">
+           
+                
+          <td>{{ karama.cin }}</td>
+          <td>{{ karama.nom_prenom }}</td>       
+          <td>{{ karama.bur_cod }}</td>
+          <td>{{ karama.date }}</td>
+          <td>{{ karama.numero_affiliation }}</td>
+          <td>{{ karama.type_contrat}}</td>
+
+            <ng-container *ngIf="karama.emp_exist === 1; then check1; else cross1">
+            </ng-container>
+
+            <ng-container *ngIf="karama.ass_exist === 1; then check2; else cross2">
+            </ng-container>
+          
+            <ng-template #check1>
+            <td> <span class="check"> &#10004; </span> </td>
+            </ng-template>
+
+            <ng-template #cross1>
+            <td> <span class="cross"> &#10060; </span> </td>         
+            </ng-template>   
+
+            <ng-template #check2>
+            <td> <span class="check"> &#10004; </span> </td>
+            </ng-template>
+
+            <ng-template #cross2>
+            <td><span class="cross"> &#10060; </span> </td>
+            </ng-template>
+            
+          
+      <!--   <ng-container *ngIf="karama.ass_exist !== 1 || karama.emp_exist !== 1; then update">
+            </ng-container>
+            <ng-template #update>
+            <td> <a (click)="update(karama)" class="btn btn-info"> update </a> </td>
+            </ng-template>  -->
+            
+          <!--  <td>
+              <div *ngIf="karama.ass_exist !== 1 || karama.emp_exist !== 1" > 
+              <button (click)="update(karama.numero_affiliation,karama.cin)" class="btn btn-info"> update </button>
+              </div>
+            </td> -->   
+         </tr>   
+      </tbody>   
+    </table>
+  </mat-drawer-container>
+  </div>
+  </div>  
+  </div>
+</div>
+  </div> 
+
+  
+
+
+<!--     ******************-->
+ 
+<!--<div class="toggle"  ></div>-->
+<ng-container *ngIf="totop">
+  <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
+  </a>
+</ng-container>
+
+
+</div>
+
+   
+
+       
