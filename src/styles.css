@@ -3,6 +3,7 @@
 @import "~font-awesome";
 @import "~@fortawesome\fontawesome-free\css\all.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+@import  "~animate.css/animate.min";
 /* @import "app/project/project.component.css"; */
 body{
 /* background-image:url("/assets/images/bg.jpg") ; */
@@ -57,15 +58,20 @@ tbody td,.thead th{
   text-transform: uppercase;
   font-family:"OpenSans-Semibold",sans-serif ;
   position: absolute !important;
+ 
   left: 33%;
-  top: 48px;
+  
+  top: 40px;
   background-color:  whitesmoke;
   color:red;
-  width: 1000px;
-  transform: translate(-50%,-50%);
+  
+  
   z-index: 100;
   box-shadow: 1px 2px 3px black;
+cursor: pointer;
 }
+
+
 .red-snackbar:hover{
   box-shadow: 1px 2px 3px  black;
   transform: translateY(-0.20em);
@@ -97,40 +103,6 @@ tbody td,.thead th{
  
 }
 
-.loading{
-  
-  z-index: 100;
-  position:absolute;
-  width: 200px;
-  height: 200px;
-  box-sizing: border-box;
-  border-radius: 50%;
-  border-top: 10px solid #e74c3c;
-  position: relative;
-  animation: a1 2s linear infinite;
-  
-}
-
-.loading::before,.loading::after{
-  content: '';
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 0;
-  top: -10px;
-  box-sizing: border-box;
-  border-radius: 50%;
-}
-
-.loading::before{
-  border-top: 10px solid #e67e22;
-  transform: rotate(120deg);
-}
-
-.loading::after{
-  border-top: 10px solid #3498db;
-  transform: rotate(240deg);
-}
 
 .loading span{
   position: absolute;
@@ -222,7 +194,7 @@ animation-delay: -0.30s;
    transform: scale(0);
  }
   40%{
-   transform: scale(0.8)
+   transform: scale(0.8) 
     
   }
 }
@@ -378,10 +350,10 @@ animation-delay: -0.30s;
     margin: auto;
     
     cursor: pointer;
-    animation: 1s rotate ease-out;
+    animation: 1s trans ease-out;
     animation-fill-mode: forwards;
   }
- @keyframes rotate{
+ @keyframes trans{
    0%{
     transform: translate(0%,-100%);
 
@@ -391,5 +363,34 @@ animation-delay: -0.30s;
      transform: translate(0%,-200%);
    }
  }
+ .active{
+   
+  background-color: #29343f;
+  /*background-color:#bdc3c7 ;*/
+  /*color: black;*/
   
+  border-radius: 8px;
+  border-bottom: 5px solid rgb(128, 198, 221);
+  border-radius: 5px;
+  height: 100%;
+  box-shadow: 1px 1px 2px  black;
+ /* animation: a5 0.5s forwards  ;*/
+}
+
+@keyframes a5 {
+ to{
+
+ transform: translateY(0em);
+ }
+  
+}
+ 
+ .active2{
+   
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 1px 2px 4px  black;
+  height: 100%;
+}
+ 
 

@@ -4,7 +4,7 @@ import { ChartsComponent } from './Suivi_Avantage/charts/charts.component';
 import { PaymentComponent } from './Suivi_Avantage/payment/payment.component';
 import { FacturationComponent } from './Suivi_Avantage/facturation/facturation.component';
 import { FirstcompComponent } from './Suivi_Avantage/firstcomp/firstcomp.component';
-import { karama } from './Suivi_Avantage/karama';
+//import { karama } from './Suivi_Avantage/karama';
 //import { HomeComponent } from './ANGULAR-PROJECT/home/home.component';
 //import { RegionsComponent } from './ANGULAR-PROJECT/regions/regions.component';
 //import { CountriesComponent } from './ANGULAR-PROJECT/countries/countries.component';
@@ -21,6 +21,8 @@ import { CNSSAgentsRolesComponent } from './Suivi_Avantage/Administrator/cnss-ag
 import { NewAdvantagesComponent } from './Suivi_Avantage/Administrator/new-advantages/new-advantages.component';
 import { FaultyDataComponent } from './Suivi_Avantage/faulty-data/faulty-data.component';
 import { NotYetRegisteredComponent } from './Suivi_Avantage/not-yet-registered/not-yet-registered.component';
+import { ComplaintsComponent } from './Suivi_Avantage/Administrator/complaints/complaints.component';
+import { MainNavbarComponent } from './Suivi_Avantage/main-navbar/main-navbar.component';
 
 // const routes: Routes = [
 //   {path:'country/:name',component:CountryComponent},
@@ -30,26 +32,58 @@ import { NotYetRegisteredComponent } from './Suivi_Avantage/not-yet-registered/n
 //   {path:'regions',component:RegionsComponent},
 //   {path:'countries',component:CountriesComponent},
 // ];
+
+//const routes: Routes = [
+ 
+ // { path: '', component:KaramaApiComponent },
+ // { path: 'login', component:LoginComponent },
+ // { path: 'Suivi-Avantage', component:FirstcompComponent },
+ // { path: 'home',component :KaramaApiComponent},  
+//  { path: 'faulty', component: FaultyDataComponent },
+///  { path: 'notyetregistered', component: NotYetRegisteredComponent },
+ // { path: 'versioning', component: VersioningComponent },
+ // { path: 'facturation', component: FacturationComponent },
+ // { path: 'payment', component: PaymentComponent },
+ // { path: 'charts', component: ChartsComponent },
+ ////// {path:'admin',component: AdminHeaderComponent},
+// { path: 'admin' ,component: AdminHeaderComponent,
+//children:[
+ // {path:'agents',component: CNSSAgentsComponent},
+// {path:'roles',component:CNSSAgentsRolesComponent},
+ // {path:'avantages',component:NewAdvantagesComponent},
+ // {path:'complaintes',component:ComplaintsComponent},
+//]},
+
+//];
+//
+
 const routes: Routes = [
-  //{path :'users/:id',component:SpringbootComponent},
- // { path: 'login',component:LoginComponent},
-  { path: '', component:KaramaApiComponent },
+ 
+  { path: '', component:LoginComponent },
   { path: 'login', component:LoginComponent },
-  { path: 'Suivi-Avantage', component:FirstcompComponent },
-  { path: 'home',component :KaramaApiComponent},  
+ 
+
+{path:'home',component:MainNavbarComponent,
+children:[
+  { path: 'logout', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'listing',component :KaramaApiComponent},  
   { path: 'faulty', component: FaultyDataComponent },
   { path: 'notyetregistered', component: NotYetRegisteredComponent },
   { path: 'versioning', component: VersioningComponent },
   { path: 'facturation', component: FacturationComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'charts', component: ChartsComponent },
- // {path:'admin',component: AdminHeaderComponent},
  { path: 'admin' ,component: AdminHeaderComponent,
 children:[
   {path:'agents',component: CNSSAgentsComponent},
   {path:'roles',component:CNSSAgentsRolesComponent},
   {path:'avantages',component:NewAdvantagesComponent},
-]},
+  {path:'complaintes',component:ComplaintsComponent},
+        ]},
+]
+},
+
+  
 
 ];
 @NgModule({

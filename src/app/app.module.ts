@@ -36,9 +36,11 @@ import { NotYetRegisteredComponent } from './Suivi_Avantage/not-yet-registered/n
 import {MatButtonModule} from '@angular/material/button'
 import { HighchartsChartModule } from 'highcharts-angular';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ComplaintsComponent } from './Suivi_Avantage/Administrator/complaints/complaints.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
-  declarations: [AppComponent, KaramaApiComponent, VersioningComponent, NavbarComponent, MainNavbarComponent, LoginComponent, FacturationComponent, FirstcompComponent, PaymentComponent, ChartsComponent, CNSSAgentsComponent, CNSSAgentsRolesComponent, NewAdvantagesComponent, RegistrationComponent, AdminHeaderComponent, PaymentDataTableComponent, FaultyDataComponent, NotYetRegisteredComponent],
-  imports: [HighchartsChartModule,FlexLayoutModule,MatButtonModule,MatSidenavModule,MatInputModule,MatFormFieldModule,BrowserModule, AppRoutingModule,FormsModule, NgbModule,HttpClientModule,MatProgressBarModule,MatProgressSpinnerModule,BrowserAnimationsModule,MatSnackBarModule, MatTableModule, MatPaginatorModule, MatSortModule],
+  declarations: [AppComponent, KaramaApiComponent, VersioningComponent, NavbarComponent, MainNavbarComponent, LoginComponent, FacturationComponent, FirstcompComponent, PaymentComponent, ChartsComponent, CNSSAgentsComponent, CNSSAgentsRolesComponent, NewAdvantagesComponent, RegistrationComponent, AdminHeaderComponent, PaymentDataTableComponent, FaultyDataComponent, NotYetRegisteredComponent, ComplaintsComponent],
+  imports: [NgMultiSelectDropDownModule,HighchartsChartModule,FlexLayoutModule,MatButtonModule,MatSidenavModule,MatInputModule,MatFormFieldModule,BrowserModule, AppRoutingModule,FormsModule, NgbModule,HttpClientModule,MatProgressBarModule,MatProgressSpinnerModule,BrowserAnimationsModule,MatSnackBarModule, MatTableModule, MatPaginatorModule, MatSortModule],
  // providers: [{provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}],
  providers: [],
   bootstrap: [AppComponent],
